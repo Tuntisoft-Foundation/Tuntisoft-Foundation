@@ -17,98 +17,45 @@
   --text: #0f172a;
   --muted: #475569;
   --border: #e2e8f0;
+  --radius: 12px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", system-ui, sans-serif;
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-}
+* { box-sizing: border-box; }
+html,body{height:100%;margin:0;font-family: "Inter", system-ui, sans-serif;scroll-behavior:smooth;background:var(--bg);color:var(--text)}
 
 header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--card);
-  border-bottom: 1px solid var(--border);
-  padding: 18px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: sticky;top:0;z-index:100;background:var(--card);border-bottom:1px solid var(--border);padding:18px 40px;display:flex;justify-content:space-between;align-items:center
 }
 
-header h1 {
-  color: var(--primary);
-  font-size: 1.5rem;
-  font-weight: 800;
-}
+header h1 { color:var(--primary);font-size:1.4rem;font-weight:800;margin:0 }
+nav a { margin-left:18px;text-decoration:none;color:var(--muted);font-weight:500 }
+nav a:hover{ color:var(--primary) }
 
-nav a {
-  margin-left: 18px;
-  text-decoration: none;
-  color: var(--muted);
-  font-weight: 500;
-}
+section{max-width:1100px;margin:auto;padding:70px 20px}
+.section-title{font-size:2.2rem;font-weight:800;margin-bottom:14px;color:var(--primary)}
+.section-desc{color:var(--muted);max-width:750px;margin-bottom:24px}
 
-nav a:hover {
-  color: var(--primary);
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
 
-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 90px 20px;
-}
+footer{text-align:center;padding:40px 20px;border-top:1px solid var(--border);color:var(--muted);font-size:0.9rem}
 
-.section-title {
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 14px;
-  color: var(--primary);
-}
+/* small utilities from original template */
+.muted{color:var(--muted)}
+.small{font-size:13px}
 
-.section-desc {
-  color: var(--muted);
-  max-width: 750px;
-  margin-bottom: 40px;
-}
+/* gallery adjustments */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px}
+@media(max-width:800px){.gallery{grid-template-columns:repeat(2,1fr)}}
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
+/* forms */
+form{display:grid;gap:10px}
+input,textarea,select{padding:10px;border-radius:8px;border:1px solid #e6e9ef;font-size:14px}
+button{background:var(--primary);color:white;padding:10px 12px;border-radius:8px;border:none;cursor:pointer}
 
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 26px;
-}
-
-.card h3 {
-  color: var(--secondary);
-  margin-bottom: 10px;
-}
-
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.9rem;
-}
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
@@ -127,10 +74,7 @@ footer {
 <!-- 1️⃣ HOME -->
 <section id="home">
   <h2 class="section-title">Build the Future with Simplicity</h2>
-  <p class="section-desc">
-    Tuntisoft Foundation builds simple, readable, and powerful technologies
-    designed for learners, creators, and future innovators.
-  </p>
+  <p class="section-desc">Tuntisoft Foundation builds simple, readable, and powerful technologies designed for learners, creators, and future innovators.</p>
 
   <div class="grid">
     <div class="card">
@@ -151,88 +95,86 @@ footer {
 <!-- 2️⃣ ABOUT -->
 <section id="about">
   <h2 class="section-title">About Us</h2>
-  <p class="section-desc">
-    Tuntisoft Foundation is an independent software foundation focused on
-    creating original languages and tools for the next generation.
-  </p>
+  <p class="section-desc">Tuntisoft Foundation is an independent software foundation focused on creating original languages and tools for the next generation.</p>
 
   <div class="card">
-    <p>
-      Our mission is to make software development accessible,
-      understandable, and enjoyable for everyone—especially beginners.
-    </p>
+    <p>Our mission is to make software development accessible, understandable, and enjoyable for everyone—especially beginners.</p>
   </div>
 </section>
 
 <!-- 3️⃣ PROJECTS -->
 <section id="projects">
   <h2 class="section-title">Our Projects</h2>
-  <p class="section-desc">
-    A family of original languages and tools developed by Tuntisoft Foundation.
-  </p>
+  <p class="section-desc">A family of original languages and tools developed by Tuntisoft Foundation.</p>
 
-  <div class="grid">
-    <div class="card">
-      <h3>Tayo</h3>
-      <p>General-purpose programming language.</p>
-    </div>
-    <div class="card">
-      <h3>Tiny</h3>
-      <p>Structured query language for simple data management.</p>
-    </div>
-    <div class="card">
-      <h3>TinyML</h3>
-      <p>Markup & visualization language.</p>
-    </div>
-    <div class="card">
-      <h3>Tayo Shell</h3>
-      <p>Command-line environment for the ecosystem.</p>
-    </div>
+  <div id="projects-list" class="grid">
+    <!-- projects populated from JSON -->
   </div>
 </section>
 
 <!-- 4️⃣ ECOSYSTEM -->
 <section id="ecosystem">
   <h2 class="section-title">Ecosystem</h2>
-  <p class="section-desc">
-    A complete foundation covering programming, database, markup, shell,
-    and API layers.
-  </p>
+  <p class="section-desc">A complete foundation covering programming, database, markup, shell, and API layers.</p>
 
   <div class="card">
-    <p>
-      Tayo + Tiny + TinyML + Tayo Shell work together as one unified platform,
-      enabling learning, automation, and visualization.
-    </p>
+    <p>Tayo + Tiny + TinyML + Tayo Shell work together as one unified platform, enabling learning, automation, and visualization.</p>
   </div>
 </section>
 
 <!-- 5️⃣ DOCS -->
 <section id="docs">
   <h2 class="section-title">Documentation</h2>
-  <p class="section-desc">
-    Official documentation and learning resources.
-  </p>
+  <p class="section-desc">Official documentation and learning resources.</p>
 
   <div class="card">
-    <p>
-      Documentation for all languages and tools will be published here.
-      Tutorials, references, and examples are coming soon.
-    </p>
+    <p>Documentation for all languages and tools will be published here. Tutorials, references, and examples are coming soon.</p>
   </div>
 </section>
 
-<!-- 6️⃣ CONTACT -->
+<!-- 6️⃣ GALLERY -->
+<section id="gallery">
+  <h2 class="section-title">Gallery</h2>
+  <p class="section-desc">Photos and snapshots from events and workshops.</p>
+
+  <div class="gallery">
+    <img src="https://via.placeholder.com/800x600?text=Event+1" alt="Event 1">
+    <img src="https://via.placeholder.com/800x600?text=Event+2" alt="Event 2">
+    <img src="https://via.placeholder.com/800x600?text=Event+3" alt="Event 3">
+    <img src="https://via.placeholder.com/800x600?text=Event+4" alt="Event 4">
+    <img src="https://via.placeholder.com/800x600?text=Event+5" alt="Event 5">
+    <img src="https://via.placeholder.com/800x600?text=Event+6" alt="Event 6">
+  </div>
+</section>
+
+<!-- 7️⃣ CONTACT -->
 <section id="contact">
   <h2 class="section-title">Contact</h2>
-  <p class="section-desc">
-    Reach out to Tuntisoft Foundation.
-  </p>
+  <p class="section-desc">Reach out to Tuntisoft Foundation.</p>
 
   <div class="card">
-    <p>Email: contact@tuntisoft.org</p>
-    <p>GitHub: github.com/Tuntisoft</p>
+    <p>Email: <a href="mailto:thwinthithtoolay@outlook.com">thwinthithtoolay@outlook.com</a></p>
+    <p>GitHub: <a href="https://github.com/Tuntisoft">github.com/Tuntisoft</a></p>
   </div>
+
+  <div style="margin-top:18px" class="card">
+    <h3>Join Program</h3>
+    <p class="small muted">Apply to volunteer or contribute to projects — demo form below (no backend).</p>
+    <form id="join-form">
+      <input name="name" placeholder="Your full name" required />
+      <input name="email" type="email" placeholder="Email" required />
+      <select name="interest">
+        <option value="dev">Development</option>
+        <option value="design">Design</option>
+        <option value="community">Community</option>
+        <option value="other">Other</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Tell us a bit about why you want to join"></textarea>
+      <button type="submit">Apply</button>
+    </form>
+    <div id="join-result" class="small muted" style="margin-top:8px"></div>
+  </div>
+
 </section>
 
 <!-- FOOTER -->
@@ -240,6 +182,52 @@ footer {
   © 2026 <strong>Tuntisoft Foundation</strong><br>
   All projects and names are original intellectual property of Tuntisoft Foundation.
 </footer>
+
+<!-- ---------- Embedded data (JSON) ---------- -->
+<script id="site-data" type="application/json">
+{
+  "projects": [
+    {"title":"TuntiPay (prototype)","summary":"A lightweight payment UI for community projects","status":"active"},
+    {"title":"Tunti Launcher","summary":"An open-source game launcher for small studios","status":"beta"},
+    {"title":"Learning Club","summary":"Workshops and mentoring for students","status":"active"}
+  ],
+  "news": [
+    {"date":"2026-01-01","title":"New Year launch: Join program opens","excerpt":"We launched the Join Program for volunteers and partners."},
+    {"date":"2025-12-15","title":"TuntiPay prototype released","excerpt":"Prototype for community payment UI is now available on GitHub."}
+  ]
+}
+</script>
+
+<script>
+// Populate Projects
+const dataEl = document.getElementById('site-data');
+let data = {};
+try{ data = JSON.parse(dataEl.textContent); }catch(e){console.warn('Invalid JSON',e)}
+const projectsList = document.getElementById('projects-list');
+if(projectsList && data.projects){
+  data.projects.forEach(p=>{
+    const el = document.createElement('div'); el.className='card';
+    el.innerHTML = `<h3>${escapeHtml(p.title)}</h3><p class="small">${escapeHtml(p.summary)}<br/><strong>Status:</strong> ${escapeHtml(p.status)}</p>`;
+    projectsList.appendChild(el);
+  });
+}
+
+// Simple join form handler (demo)
+function handleForm(form, resultEl, successMessage){
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    const fd = new FormData(form);
+    const obj = Object.fromEntries(fd.entries());
+    resultEl.textContent = successMessage || 'Thanks! (demo)';
+    form.reset();
+  });
+}
+const joinForm = document.getElementById('join-form');
+const joinResult = document.getElementById('join-result');
+if(joinForm) handleForm(joinForm, joinResult, 'Application received. We will contact you at the email provided.');
+
+function escapeHtml(s){ if(!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+</script>
 
 </body>
 </html>
